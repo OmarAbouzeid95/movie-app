@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/movie-app/static/css/main.81ebc20d.css",
+    "main.js": "/movie-app/static/js/main.3e220550.js",
+    "index.html": "/movie-app/index.html",
+    "static/media/magnifying-glass-solid.svg": "/movie-app/static/media/magnifying-glass-solid.cd761af2e6d53d07ac6129e7f885fa95.svg",
+    "main.81ebc20d.css.map": "/movie-app/static/css/main.81ebc20d.css.map",
+    "main.3e220550.js.map": "/movie-app/static/js/main.3e220550.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.81ebc20d.css",
+    "static/js/main.3e220550.js"
+  ]
+}
