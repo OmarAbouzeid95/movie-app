@@ -1,6 +1,7 @@
 
 const express = require('express')
 const cors = require('cors')
+require("dotenv").config()
 const {getDb, dbConnect} = require('./db')
 const app = express()
 
@@ -10,9 +11,12 @@ app.use(express.json())
 
 // eslint-disable-next-line no-unused-vars
 let db
+const port = process.env.PORT || 443;
 dbConnect((error) => {
     if(!error) {
-        app.listen()
+        app.listen(port, () => {
+            console.log(`Now listening to port ${port}`)
+        })
         db = getDb()
     }   
 })
