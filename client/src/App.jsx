@@ -371,7 +371,7 @@ function App() {
         /**
          * fetching movie reviews from the DB
          */
-        fetch(`https://omarabouzeid95.github.io/movie-app/movies/${id}`)
+        fetch(`https://exuberant-tan-llama.cyclic.app/${id}`)
         .then(res => res.json())
         .then(data => {
           if(data !== null){
