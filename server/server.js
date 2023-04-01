@@ -66,6 +66,21 @@ app.get('/user/:email', (req,res) => {
     })
 })
 
+// Checking if name exists
+app.get('/user/:name', (req,res) => {
+
+    const userName = req.params.name
+
+    db.collection('users')
+    .findOne({firstName: userName})
+    .then(user => {
+        res.status(200).json(user)
+    })
+    .catch(error => {
+        res.status(500).json({error: "Couldn't fetch user: " + error})
+    })
+})
+
 // updating user info
 app.patch('/updateUser', (req,res) => {
 
