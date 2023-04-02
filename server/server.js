@@ -6,12 +6,12 @@ const {getDb, dbConnect} = require('./db')
 const app = express()
 
 
-app.use(cors({origin: 'https://omarabouzeid95.github.io/movie-app/'}))
+app.use(cors({origin: 'https://omarabouzeid95.github.io/'}))
 app.use(express.json())
 
 // eslint-disable-next-line no-unused-vars
 let db
-const port = process.env.PORT || 443;
+const port = process.env.PORT || 6900;
 dbConnect((error) => {
     if(!error) {
         app.listen(port, () => {
