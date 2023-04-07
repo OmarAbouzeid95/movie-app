@@ -37,7 +37,7 @@ export default function Header(props){
                 {(props.mode === 'tv') && <button className="mobile-nav-btn" onClick = {()=> {
                     props.updateCurrentPage('trending')
                     toggleNavShow()
-                }}>Upcoming</button>}
+                }}>Trending</button>}
                 <button className="mobile-nav-btn" onClick = {()=> {
                     props.toggleMode()
                     props.updateCurrentPage('homepage')
@@ -70,7 +70,7 @@ export default function Header(props){
                     <button className="header-nav-button" onClick = {()=> props.updateCurrentPage('popular')}>Popular</button>
                     <button className="header-nav-button" onClick = {()=> props.updateCurrentPage('topRated')}>Top rated</button>
                     {(props.mode === 'movie') && <button className="header-nav-button" onClick = {()=> props.updateCurrentPage('upcoming')}>Upcoming</button>}
-                    {(props.mode === 'tv') && <button className="header-nav-button" onClick = {()=> props.updateCurrentPage('trending')}>Upcoming</button>}
+                    {(props.mode === 'tv') && <button className="header-nav-button" onClick = {()=> props.updateCurrentPage('trending')}>Trending</button>}
                     <button className="header-nav-button" onClick = {()=> {
                         props.toggleMode()
                         props.updateCurrentPage('homepage')
