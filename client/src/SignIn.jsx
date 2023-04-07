@@ -11,7 +11,7 @@ export default function SignIn(props){
          * POST request to make the password not visible in the URL 
          * check the server to see if this user exists
          */
-        fetch('https://omarabouzeid95.github.io/movie-app/signIn', {
+        fetch('https://movieapp-rget.onrender.com/signIn', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

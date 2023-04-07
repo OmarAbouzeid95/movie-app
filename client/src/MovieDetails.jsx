@@ -56,7 +56,7 @@ export default function MovieDetails(props){
         /**
          * find corresponding movie
          */
-        fetch(`http://localhost:6900/movies/${movieId}`)
+        fetch(`https://movieapp-rget.onrender.com/movies/${movieId}`)
         .then(res => res.json())
         .then(data => {
 
@@ -67,7 +67,7 @@ export default function MovieDetails(props){
             reviews.splice(reviewIndex, 1)
             console.log(reviews)
             // patching the corresponding movie details
-            fetch('http://localhost:6900/movies', {
+            fetch('https://movieapp-rget.onrender.com/movies', {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
@@ -97,7 +97,7 @@ export default function MovieDetails(props){
             /**
              * Check if Movie with this ID has details stored in the DB, if so then PATCH request, else it's a POST request 
              */
-            fetch(`http://localhost:6900/movies/${props.movieDetails.id}`)
+            fetch(`https://movieapp-rget.onrender.com/movies/${props.movieDetails.id}`)
             .then(res => res.json())
             .then(getRequestData => {
                 if(getRequestData === null){
@@ -115,7 +115,7 @@ export default function MovieDetails(props){
                             comment: review.trim(' ')
                          }]
                     }
-                    fetch('http://localhost:6900/movies', {
+                    fetch('https://movieapp-rget.onrender.com/movies', {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -160,7 +160,7 @@ export default function MovieDetails(props){
                         },
                         id: getRequestData.movie_id
                     }
-                    fetch('http://localhost:6900/movies', {
+                    fetch('https://movieapp-rget.onrender.com/movies', {
                         method: "PATCH",
                         headers: {
                             "Content-Type": "application/json"

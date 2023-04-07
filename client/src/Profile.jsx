@@ -19,7 +19,7 @@ export default function Profile(props){
          */
         const data = {...updatedInfo, oldEmail: props.userData.email}
         console.log(data)
-        fetch("https://omarabouzeid95.github.io/movie-app/updateUser", {
+        fetch("https://movieapp-rget.onrender.com/updateUser", {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -67,7 +67,7 @@ export default function Profile(props){
             /**
              * Check if email already exists in the DB
              */
-            fetch(`https://omarabouzeid95.github.io/movie-app/user/${updatedInfo.email}`)
+            fetch(`https://movieapp-rget.onrender.com/user/${updatedInfo.email}`)
             .then(res => res.json())
             .then(data => {
                 if (data !== null){

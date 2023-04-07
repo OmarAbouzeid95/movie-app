@@ -371,7 +371,7 @@ function App() {
         /**
          * fetching movie reviews from the DB
          */
-        fetch(`https://sleepy-trousers-lamb.cyclic.app/${id}`)
+        fetch(`https://movieapp-rget.onrender.com/${id}`)
         .then(res => res.json())
         .then(data => {
           if(data !== null){
