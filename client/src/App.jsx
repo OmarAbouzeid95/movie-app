@@ -371,7 +371,7 @@ function App() {
         /**
          * fetching movie reviews from the DB
          */
-        fetch(`https://movieapp-rget.onrender.com/${id}`)
+        fetch(`https://movieapp-rget.onrender.com/movies/${id}`)
         .then(res => res.json())
         .then(data => {
           if(data !== null){
