@@ -38,12 +38,14 @@ function App() {
     /**
      * Activating server by sending multiple requests when the page loads until one is resolved
      */
-    for(let i = 0; i < 2; i++){
-      fetch('https://movieapp-rget.onrender.com/user/Omar')
-      .then(res => {
-        if(res.status === 200)
-          setServerConnection(true)
-      })
+    if(!serverConnection){
+      for(let i = 0; i < 2; i++){
+        fetch('https://movieapp-rget.onrender.com/user/Omar')
+        .then(res => {
+          if(res.status === 200)
+            setServerConnection(true)
+        })
+      }
     }
     /*
     Fetching movies and tv by genre to display on the homepage
