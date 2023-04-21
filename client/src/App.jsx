@@ -8,6 +8,7 @@ import SignUp from './SignUp';
 import Profile from './Profile'
 import {apiKey, baseUrl, posterPath} from "./info.js"
 import defaultPoster from "./media/defaultPoster.png"
+import closeIcon from "./media/close-icon.png"
 import Caroussel from './Caroussel'
 
 function App() {
@@ -468,8 +469,19 @@ function App() {
         mode = {mode}
         userData = {userData}
       />
-      {!serverConnection && <div>
-                  <p>Connecting to the Server and Database...</p>
+      {!serverConnection && <div className="popupContainer">
+                  <div className="popupWrapper">
+                    <img className="close-icon" src={closeIcon} alt="close icon" onClick = {(e) => e.target.parentNode.parentNode.classList.add("hide")}></img>
+                    <div className="loaderWrapper">
+                    <div class="loader">
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                    </div>
+                      <p>Connecting to the Server and Database...</p>
+                    </div>
+                  </div>
         </div>}
       {movieDetails.visible && <MovieDetails
                                   hideDetails = {removeMovieDetails}
