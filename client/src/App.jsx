@@ -35,18 +35,13 @@ function App() {
 
   useEffect(() => {
     /**
-     * Activating server
+     * Activating server by sending multiple requests when the page loads until one is resolved
      */
-    if(!serverConnection){
-      fetch('https://movieapp-rget.onrender.com/user/xxx')
-      .then(res => res.json())
-      .then(data => {
-        if(data) {
+    for(let i = 0; i < 2; i++){
+      fetch('https://movieapp-rget.onrender.com/user/Omar')
+      .then(res => {
+        if(res.status === 200)
           setServerConnection(true)
-        }
-      })
-      .catch(error => {
-        console.log(error)
       })
     }
     /*
