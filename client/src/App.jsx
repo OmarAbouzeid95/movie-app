@@ -30,9 +30,25 @@ function App() {
   const [animationTv, setAnimationTv] = useState([])
   const [documentaryTv, setDocumentaryTv] = useState([])
   const [mysteryTv, setMysteryTv] = useState([])
+  const [serverConnection, setServerConnection] = useState(false)
 
 
   useEffect(() => {
+    /**
+     * Activating server
+     */
+    if(!serverConnection){
+      fetch('https://movieapp-rget.onrender.com/user/xxx')
+      .then(res => res.json())
+      .then(data => {
+        if(data) {
+          setServerConnection(true)
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    }
     /*
     Fetching movies and tv by genre to display on the homepage
     */
@@ -185,7 +201,7 @@ function App() {
         setMovieDetails({...movieDetails, cast: data.cast, active: false, visible: true})
       })
     }
-  }, [search, movieDetails, mode, currentPage, currentSearch, loadHomepage])
+  }, [search, movieDetails, mode, currentPage, currentSearch, loadHomepage, serverConnection])
 
     const allMovies = movies.map(movie => {
       if (currentSearch === 'Trending'){
@@ -457,6 +473,9 @@ function App() {
         mode = {mode}
         userData = {userData}
       />
+      {!serverConnection && <div>
+                  <p>Connecting to the Server and Database...</p>
+        </div>}
       {movieDetails.visible && <MovieDetails
                                   hideDetails = {removeMovieDetails}
                                   movieDetails = {movieDetails}
