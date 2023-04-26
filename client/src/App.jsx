@@ -33,19 +33,29 @@ function App() {
   const [mysteryTv, setMysteryTv] = useState([])
   const [serverConnection, setServerConnection] = useState(false)
 
+  /**
+   * Async function to activate server
+   */
+  async function activateServer(){
+    // trying to fetch 3 times until the server is up and running
+    for(let i = 0; i < 2; i++){
+      const res = await fetch('https://movieapp-rget.onrender.com/user/Omar')
+      const status = res.status
+      if(status === 200){
+        // server is up --> set state and break of the loop
+        setServerConnection(true)
+        break
+      }
+    }
+  }
+
 
   useEffect(() => {
     /**
      * Activating server by sending multiple requests when the page loads until one is resolved
      */
     if(!serverConnection){
-      for(let i = 0; i < 2; i++){
-        fetch('https://movieapp-rget.onrender.com/user/Omar')
-        .then(res => {
-          if(res.status === 200)
-            setServerConnection(true)
-        })
-      }
+      activateServer()
     }
     /*
     Fetching movies and tv by genre to display on the homepage
